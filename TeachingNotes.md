@@ -1261,7 +1261,7 @@ Undirected graph edges are denoted with curly braces {x,y} to show that the orde
 - The **neighbors** of a vertex are all vertices adjacent to it
 - **degree**: the number of neighbors a vertex has
   - Also,  the number of incident edges
-- **total degree**: the total number of neighbors for each vertex  
+- **total degree** of a graph: the total number of neighbors for each vertex  
 - **regular graph**: all vertices in the graph have the same degree
 - **subgraph**: a graph that has vertices and edges that are subsets of the original graph's vertices and edges.
 
@@ -1277,7 +1277,7 @@ A list of vertices which each points to a list of the vertices adjacent to it.
 | vertex | neighbors |
 | --- | --- |
 | x | y, z |
-| y | z |
+| y | x |
 | z | x |
 
 **Matrix representation**:  
@@ -1394,6 +1394,91 @@ Midterm 2 Review
 ## Lecture 20
 Sections 8.1 - 8.3
 
+### Sequences
+A sequence is a type of function in which the domain (not the range) is a set of consecutive integers.  ex: $\{1,2,3,4\}$
+
+Because a sequence is a function, we could write it in the common form, $g(k)$.  However, because it has a special property, we often write it $g_k$ instead, where $k$ is the index.  Any one output of $g_k$ is called a term, and $\{g_k\}$ is the set of all terms in the sequence.  $k$ can start at any index. $k=0$ and $k=1$ are common choices.
+
+#### increasing and decreasing sequences
+- increasing sequence: $g_k < g_{k+1}$
+- non-decreasing sequence: $g_k \leq g_{k+1}$
+- decreasing sequence: $g_k > g_{k+1}$
+- non-increasing sequence: $g_k \geq g_{k+1}$
+
+for all $k$
+
+#### arithmetic sequence
+
+Each term (after the first) is found by adding a fixed number, called the common difference, to the previous term.
+
+$$t_{n} = t_{0}  + dn, \text{ for } n \geq 0$$
+
+- ex: $11,16,21,26...$
+- the common difference is 5
+
+#### geometric sequence
+
+Each term (after the first) is found by multiplying the previous term by a fixed number, called the common ratio.
+$$s_{k} = a \cdot r^{k}, \text{ for } k \geq 0$$
+- ex: $9,27,81...$
+- the common ratio is 3
+
+### Recurrence Relations
+
+Each term (after some number of initial terms) is defined based on previous terms.
+- ex: $1,1,2,3,5,8,13,21$
+- The Fibonacci sequence, where each term (after the first two) is equal to the sum of the previous two terms
+
+#### dynamical systems
+- describe how a system changes over time
+- the state of the system at any point in time is determined by past states
+- If we assume time is discrete (instead of continuous), a dynamical system can be modeled as a recurrence relation.[^dynamical_systems]
+
+[^dynamical_systems]: If we assume time is continuous, then we have to use a differential equation
+
+### Summations
+
+$$
+\sum_{k=m}^{n} g_k
+$$
+
+This notation simply means:
+- Add all terms of the sequence $g_k$, starting at index $m$ and ending at index $n$
+- ex:
+
+$$
+\sum_{i=2}^{4} i^2 = 2^2 + 3^2 + 4^2 = 4 + 9 + 16 = 29
+$$
+
+Be careful with parenthesis! ex:
+
+$$
+\sum_{j=1}^n j + 1 = \left( \sum_{j=1}^n j \right) + 1
+$$
+
+Why is this the standard notation?  Because it's common to pull the last term out to aid in reasoning about the sequence.  ex:
+
+$$
+\sum_{k=m}^{{\color{red}n}} a_k = \sum_{k=m}^{{\color{red}n-1}} a_k + a_n
+$$
+
+#### closed form
+
+Sometimes a summation can be expressed without summation notation.  This is called a closed form.  
+
+Here is the closed form for an arithmetic sequence:
+
+$$
+\sum_{k=0}^{n-1} (a + kd) = an + \frac{d(n-1)n}{2}
+$$
+
+Here is the closed form for a geometric sequence:
+
+$$
+\sum_{k=0}^{n-1} a\cdot r^k = \frac{a(r^n-1)}{r-1}
+$$
+
+Not all summations have a closed form.
 
 ## Lecture 21
 Sections 8.4 - 8.6
