@@ -708,14 +708,14 @@ Sets are denoted with capital letters
 
 - $\in$ : element of
 - $\notin$ : not an element of
-- $\empty$ : empty set, null set, or $\{\}$
+- $\emptyset$ : empty set, null set, or $\{\}$
 
 so:  
 
 - $1 \in F$ is true  
 - $10 \in F$ is false  
 - $10 \notin F$ is true  
-- $F \neq \empty$ is true
+- $F \neq \emptyset$ is true
 
 #### Cardinality
 The number of items in a set, shown like this:
@@ -823,14 +823,14 @@ Sections 3.5 - 3.7
 | Law | | |
 | --- | --- | --- |
 | Double Complement | $\overline{\overline{A}} = A$ | |
-| Complement | $\overline{U} = \empty$ | $\overline{\empty} = U$ |
+| Complement | $\overline{U} = \emptyset$ | $\overline{\emptyset} = U$ |
 
 | Law | $\cup$ Identities | $\cap$ Identities |
 | --- | ----------------- | ----------------- |
 | Idempotent | $A \cup A = A$ | $A \cap A = A$ |
-| Identity | $A \cup \empty = A$ | $A \cap U = A$ |
-| Domination | $A \cup U = U$ | $A \cap \empty = \empty$ |
-| Complement (cont.) | $A \cup \overline{A} = U$ | $A \cap \overline{A} = \empty$ |
+| Identity | $A \cup \emptyset = A$ | $A \cap U = A$ |
+| Domination | $A \cup U = U$ | $A \cap \emptyset = \emptyset$ |
+| Complement (cont.) | $A \cup \overline{A} = U$ | $A \cap \overline{A} = \emptyset$ |
 | Commutative | $A \cup B = B \cup A$ | $A \cap B = B \cap A$ |
 | Associative | $A \cup (B \cup C) = (A \cup B) \cup C$ | $A \cap (B \cap C) = (A \cap B) \cap C$ |
 | Distributive | $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$ | $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$ |
@@ -840,9 +840,9 @@ Sections 3.5 - 3.7
 | Set Subtraction Identities |
 | --- |
 | $A - B = A \cap \overline{B}$ |
-| $A - \empty = A$ |
-| $A - A = \empty$ |
-| $\empty - A = \empty$ |
+| $A - \emptyset = A$ |
+| $A - A = \emptyset$ |
+| $\emptyset - A = \emptyset$ |
 | $U - A = \overline{A}$ |
 
 ### Cartesian Product
@@ -887,7 +887,7 @@ Sometimes we write n-tuples without the parentheses or commas.  When we do this,
   - Ex: if $t = 01$ and $s = 11$, then $st = 1101$
 
 ### Partitions
-- **Disjoint** : Two sets $A$ and $B$ are disjoint if $A \cap B = \empty$
+- **Disjoint** : Two sets $A$ and $B$ are disjoint if $A \cap B = \emptyset$
 - **Pairwise Disjoint** : A series of sets (usually more than two) in which every pair is disjoint.
 - **Partition** : Create a partition of $A$ by dividing it into two or more subsets, and assigning _each_ element of $A$ to _exactly one_ subset.
 
@@ -929,13 +929,13 @@ What are some functions that would satisfy each of the properties above?  graph 
 These functions map Real numbers $\mathbb{R}$ onto integers $\mathbb{Z}$
 
 ##### Floor
-Also known as _round down_ or _round toward -$\infty$_.  
+Also known as _round down_ or round toward -$\infty$.  
 The floor function produces the largest integer $y$ such that $y \leq x$.  
 
 $$\lfloor x \rfloor = n \text{, where } (n \in \mathbb{Z}) \land (n \leq x < n+1)$$
 
 ##### Ceiling
-Also known as _round up_ or _round toward $\infty$_.  
+Also known as _round up_ or round toward $\infty$.  
 The ceiling function produces the smallest integer $y$ such that $x \leq y$.  
 
 $$\lceil x \rceil = n \text{, where } (n \in \mathbb{Z}) \land (n-1 < x \leq n)$$
@@ -945,7 +945,7 @@ Also known as _round toward 0_.
 Truncate simply drops the fractional part of a number.
 
 $$
-\operatorname{trunc}(x) =
+\text{trunc}(x) =
 \begin{cases}
 \lfloor x \rfloor & \text{if } x \ge 0 \\
 \lceil x \rceil & \text{if } x < 0
@@ -1053,16 +1053,16 @@ $$
 A matrix can be used to show which elements relate to each other, by listing the elements of $A$ as rows, and the elements of $B$ as columns, then placing a 1 or 0 in the cell to indicate that the relation is satisfied or not, respectively.
 
 $$
-A = \{1,2,3\},\ B = \{4,5,6,7\},\ aRb \text{ if } b = 2a \\
-\ \\
-\begin{array}{c|ccc}
+A = \{1,2,3\},\ B = \{4,5,6,7\},\ aRb \text{ if } b = 2a
+$$
 
-\ & 4 & 5 & 6 & 7 \\
+$$
+\begin{array}{c|cccc}
+  & 4 & 5 & 6 & 7 \\
 \hline
 1 & 0 & 0 & 0 & 0 \\
 2 & 1 & 0 & 0 & 0 \\
-3 & 0 & 0 & 1 & 0 \\
-
+3 & 0 & 0 & 1 & 0
 \end{array}
 $$
 
@@ -1459,7 +1459,7 @@ $$
 Why is this the standard notation?  Because it's common to pull the last term out to aid in reasoning about the sequence.  ex:
 
 $$
-\sum_{k=m}^{{\color{red}n}} a_k = \sum_{k=m}^{{\color{red}n-1}} a_k + a_n
+\sum_{k=m}^{{n}} a_k = \sum_{k=m}^{{n-1}} a_k + a_n
 $$
 
 #### closed form
@@ -1483,6 +1483,7 @@ Not all summations have a closed form.
 ## Lecture 21
 Sections 8.4 - 8.6
 
+### Mathematical Induction
 
 ## Lecture 22
 Sections 8.8 - 8.9
