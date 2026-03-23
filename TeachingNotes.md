@@ -710,7 +710,7 @@ Sets are denoted with capital letters
 
 - $\in$ : element of
 - $\notin$ : not an element of
-- $\emptyset$ : empty set, null set, or $\{~\}$
+- $\emptyset$ : empty set, null set, or { }
 
 so:  
 
