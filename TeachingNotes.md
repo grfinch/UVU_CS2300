@@ -1,5 +1,7 @@
 # Lecture Notes for CS 2300 - Discrete Mathematics
 
+While these notes should render on GitHub.com, I use the built-in VS Code markdown renderer with the [Markdown Footnotes](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-footnotes) extension.
+
 ## Lecture 1
 
 Read the syllabus  
@@ -708,7 +710,7 @@ Sets are denoted with capital letters
 
 - $\in$ : element of
 - $\notin$ : not an element of
-- $\emptyset$ : empty set, null set, or $\{\}$
+- $\emptyset$ : empty set, null set, or $\{~\}$
 
 so:  
 
