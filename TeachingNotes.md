@@ -1534,6 +1534,18 @@ $$
 Therefore, $\sum_{j=1}^{k+1}j = \frac{(k+1)(k+2)}{2}$  
 ■
 
+For more example proofs, see Zybooks chapter 8.5
+
+### Strong Induction and Well-ordering
+
+Standard induction only proves that if $k$ holds, then $k+1$ holds.  
+- $S(k) \to S(k+1)$   
+
+Strong induction shows that if all values $\leq k$ hold, then $k+1$ holds.  
+- $\big(S(0) \land S(1) \land ... \land S(k)\big) \to S(k+1)$
+
+While strong induction might feel necessary at times, anything that can be proven with strong induction can be proven with standard induction if you strengthen the inductive step.  
+
 ## Lecture 22
 Sections 8.8 - 8.9
 
