@@ -1458,7 +1458,7 @@ $$
 \sum_{j=1}^n j + 1 = \left( \sum_{j=1}^n j \right) + 1
 $$
 
-Why is this the standard notation?  Because it's common to pull the last term out to aid in reasoning about the sequence.  ex:
+Why is this the standard notation?  Because it's common to pull the last term out to aid in reasoning about the sequence, and especially in inductive proofs.  ex:
 
 $$
 \sum_{k=m}^{{n}} a_k = \sum_{k=m}^{{n-1}} a_k + a_n
@@ -1486,6 +1486,53 @@ Not all summations have a closed form.
 Sections 8.4 - 8.6
 
 ### Mathematical Induction
+**Induction** is a technique used to prove statements about elements in a sequence.  At it's core, it proves the statememnt for an initial element, then proves that it holds for the next elemement in the sequence.  This can be repeated infinitely for all elements in the sequence.
+
+The two parts of an indictive proof are the following:
+- The base case
+  - Proves that the theorem is true for the first element in the sequence
+- The inductive step
+  - Shows that if the theorem holds for $k$, then it also holds for $k + 1$
+  - $P(k) \to P(k+1)$
+
+#### Example Proof
+
+**Theorem**: For every positive integer n,
+
+$$
+\sum_{j=1}^{n} = \frac{n(n+1)}{2}
+$$
+
+**Proof** by induction
+
+**Base case**: $n=1$  
+
+When $n=1$, the left side of the equestion is $\sum_{j=1}^{1} j = 1$.  
+When $n=1$, the right side of the equation is $\frac{1(1+1)}{2} = 1$  
+Therefore, $\sum_{j=1}^{1} j = \frac{2(1+1)}{2}$
+
+**Inductive step**:  
+
+Suppose that for positive integer $k, \sum_{j=1}^{k}j = \frac{k(k+1)}{2}$.  
+We will show that:
+
+$$
+\sum_{j=1}^{k+1} j = \frac{(k+1)(k+2)}{2}
+$$
+
+Starting with the left side of the equation:
+
+$$
+\begin{aligned}
+\sum_{j=1}^{k+1} j &= \sum_{j=1}^{k}j + (k+1) \\
+&= \frac{k(k+1)}{2}+(k+1) \\
+&= \frac{k(k+1)+2(k+1)}{2} \\
+&= \frac{(k+2)(k+1)}{2}
+\end{aligned}
+$$
+
+Therefore, $\sum_{j=1}^{k+1}j = \frac{(k+1)(k+2)}{2}$  
+■
 
 ## Lecture 22
 Sections 8.8 - 8.9
