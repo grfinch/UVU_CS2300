@@ -1116,9 +1116,9 @@ Since these properties are universal statements, they can be disproven with a si
 
 #### Directed Graphs (Digraph)
 
-  Digraphs are created from a set of verticies $V$ and a set of directed edges $E$, where $E \subseteq V \times V$.  
+  Digraphs are created from a set of vertices $V$ and a set of directed edges $E$, where $E \subseteq V \times V$.  
   The first element, $u$, of the edge $(u,v) \in E$ is the "tail", and the second, $v$, is the "head".  
-  A vertex has an **in-degree** -- the number of edges popinting toward it -- and an **out degree** -- the number of edges originating from it.
+  A vertex has an **in-degree** -- the number of edges pointing toward it -- and an **out degree** -- the number of edges originating from it.
 
 This should feel very familiar, because it is!  $E \subseteq V \times V$, the definition of a digraph,  is a relation.  This means, of course, that we can draw a digraph using an arrow diagram, or represent it with a matrix.
 
@@ -1488,7 +1488,7 @@ Sections 8.4 - 8.6
 ### Mathematical Induction
 **Induction** is a technique used to prove statements about elements in a sequence.  At it's core, it proves the statement for an initial element, then proves that it holds for the next element in the sequence.  This can be repeated infinitely for all elements in the sequence.
 
-The two parts of an indictive proof are the following:
+The two parts of an inductive proof are the following:
 - The base case
   - Proves that the theorem is true for the first element in the sequence
 - The inductive step
@@ -1500,24 +1500,34 @@ The two parts of an indictive proof are the following:
 **Theorem**: For every positive integer n,
 
 $$
-\sum_{j=1}^{n} = \frac{n(n+1)}{2}
+\sum_{j=1}^{n} j = \frac{n(n+1)}{2}
 $$
 
 **Proof** by induction
 
 **Base case**: $n=1$  
 
-When $n=1$, the left side of the equestion is $\sum_{j=1}^{1} j = 1$.  
+When $n=1$, the left side of the equation is $\sum_{j=1}^{1} j = 1$.  
+  
 When $n=1$, the right side of the equation is $\frac{1(1+1)}{2} = 1$  
-Therefore, $\sum_{j=1}^{1} j = \frac{2(1+1)}{2}$
+  
+Therefore, $\sum_{j=1}^{1} j = \frac{1(1+1)}{2}$
 
 **Inductive step**:  
 
-Suppose that for positive integer $k, \sum_{j=1}^{k}j = \frac{k(k+1)}{2}$.  
+Assume that for positive integer $k$,
+$$
+\sum_{j=1}^{k}j = \frac{k(k+1)}{2}
+$$
 We will show that:
 
 $$
 \sum_{j=1}^{k+1} j = \frac{(k+1)(k+2)}{2}
+$$
+
+In other words:
+$$
+\sum_{j=1}^{k}j = \frac{k(k+1)}{2} \longrightarrow \sum_{j=1}^{k+1} j = \frac{(k+1)(k+2)}{2}
 $$
 
 Starting with the left side of the equation:
@@ -1536,15 +1546,22 @@ Therefore, $\sum_{j=1}^{k+1}j = \frac{(k+1)(k+2)}{2}$
 
 For more example proofs, see Zybooks chapter 8.5
 
-### Strong Induction and Well-ordering
+### Strong Induction
 
 Standard induction only proves that if $k$ holds, then $k+1$ holds.  
-- $S(k) \to S(k+1)$   
+- $S(k) \to S(k+1)$
 
 Strong induction shows that if all values $\leq k$ hold, then $k+1$ holds.  
 - $\big(S(0) \land S(1) \land ... \land S(k)\big) \to S(k+1)$
 
 While strong induction might feel necessary at times, anything that can be proven with strong induction can be proven with standard induction if you strengthen the inductive step.  
+
+### Well-ordering
+The well-ordering principle says that any nonempty subset of the nonnegative integers has a smallest element.
+
+If the well-ordering principle holds for the nonnegative integers, then both weak and strong induction follow.
+
+Also, while maybe unintuitive, the well-ordering principle, weak induction, and strong induction are equivalent.
 
 ## Lecture 22
 Sections 8.8 - 8.9
