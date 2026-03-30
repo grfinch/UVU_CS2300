@@ -1486,7 +1486,7 @@ Not all summations have a closed form.
 Sections 8.4 - 8.6
 
 ### Mathematical Induction
-**Induction** is a technique used to prove statements about elements in a sequence.  At it's core, it proves the statememnt for an initial element, then proves that it holds for the next elemement in the sequence.  This can be repeated infinitely for all elements in the sequence.
+**Induction** is a technique used to prove statements about elements in a sequence.  At it's core, it proves the statement for an initial element, then proves that it holds for the next element in the sequence.  This can be repeated infinitely for all elements in the sequence.
 
 The two parts of an indictive proof are the following:
 - The base case
@@ -1549,6 +1549,78 @@ While strong induction might feel necessary at times, anything that can be prove
 ## Lecture 22
 Sections 8.8 - 8.9
 
+### Recursion
+
+Recursion is the process of computing the value of a function using the result of that same function, but with a smaller input value.  For example, the factorial function $f(x) = n!$ can be defined as follows:
+
+$$
+\begin{aligned}
+f(0) & = 1 \\
+f(n) & = n \cdot f(n-1) ~~~\text{ for } n \geq 1 \\
+\end{aligned}
+$$
+
+Notice that any value of $f(n) \text{ where } n \geq 1$, the result depend in part on the value of $f(n-1)$.
+
+Recursion can be used to define functions, sequences, and sets.
+
+### Recursively defining elements in a set
+
+We can define a set by providing some specific recursive rules, and some specific exclusion rules.
+
+- Basis (base case)
+  - these are a few elements that are specifically included in the set
+- Recursive rules
+  - these rules build on the basis to allow construction of larger and more complex elements
+- Exclusion Statement
+  - usually implied, this specifically states that anything not covered in the first two is not included in the set.
+
+#### example using nested parenthesis
+
+- Basis
+  - $()$ is properly nested
+- Recursive rules
+  - Assume $u$ and $v$ are properly nested. Then,
+    - $(u)$ is properly nested
+    - $uv$ is properly nested
+
+Note that the most simple version of $u$ or $v$ is given in the basis as $()$.  Anything more complex is defined using the recursive rules.  
+
+How do we actually use the recursive rules?
+
+#### example using binary strings
+
+Assume we want to construct a set that includes all binary strings of any length.  This set is, of course, infinite.  Lets call it $B^*$.  We can define this set simply with recursive rules.
+
+- base case
+  - $\lambda$ represents the empty string
+  - $\lambda \in B^*$
+- Recursive rules
+  - Assume $x$ is a binary strings. Then,
+    - $x0 \in B^*$
+    - $x1 \in B^*$
+
+We could, of course, define the recursive rules by changing the order of the concatenation:
+
+- $0x \in B^*$
+- $1x \in B^*$
+
+How could we use recursion to define a function which gives the length of a binary string?
+
+#### Recursion and trees
+
+How can we use recursion to build trees?
+
+### Structural induction
+
+Induction style proofs can be used along with a recursive definition to prove that certain properties apply to all elements in the set.  For example, if a string of parenthesis is properly nested, then it has the same number of left and right parenthesis.  
+It's important to note that because this is an inductive proof, it includes an implication.  Therefore, we can say:
+- balanced string $\to$ equal number of left/right parentheses
+
+But we cannot say:
+- balanced string $\leftarrow$ equal number of left/right parentheses
+  - counteraxemple:
+    - $)($
 
 ## Lecture 23
 Sections 8.10 - 8.11
