@@ -1636,12 +1636,25 @@ It's important to note that because this is an inductive proof, it includes an i
 
 But we cannot say:
 - balanced string $\leftarrow$ equal number of left/right parentheses
-  - counteraxemple:
+  - counter example:
     - $)($
 
 ## Lecture 23
 Sections 8.10 - 8.11
 
+### Recursive algorithms
+
+A recursive algorithm is an algorithm that calls itself.  
+A recursive algorithm can also call itself more than once.
+
+Every recursive algorithm will have a base case, which is a special statement used to return from the function when no more recursive calls are needed.
+
+### induction and recursive algorithms
+
+We can use induction to prove that a recursive algorithm will give the correct value every time.  We use the same principles as before: Prove the base case holds, then prove that any arbitrary function call implies that the next call holds.  
+Usually induction uses an index, but we can use other properties such as size, length, etc.  If you use something other than an index, start your proof by stating "by induction on the <length | size | whatever> of ...".
+
+Remember, the inductive hypothesis allows us to assume that it just works, and move forward with that assumption to prove that the next one will also work.
 
 ## Lecture 24
 Sections 9.1 - 9.4
