@@ -1659,6 +1659,89 @@ Remember, the inductive hypothesis allows us to assume that it just works, and m
 ## Lecture 24
 Sections 9.1 - 9.4
 
+### Counting
+
+Counting a large but finite set can be difficult.  Determining a sets cardinality often requires exploiting the mathematical structure of the set.
+
+### Product Rule
+Let $A_1, A_2,..., A_n$ be finite sets. Then:
+
+$$
+\big| A_1 \times A_2 \times \ldots \times A_n \big| = |A_1| \cdot |A_2| \cdot \ldots \cdot |A_n|
+$$
+
+In English: The cardinality of the cartesian product of finite sets is equal to the product of the cardinality of the individual sets.  (We've seen this before)
+
+The product rule provides a way to count a sequence.  
+Even if a set itself is not a sequence, it may be possible to express that set as a set of sequences.  Therefore, we can often partition a large set into a set of sequences, and then apply the product rule.
+
+For example, the cartesian product results in a set of _n-tuples_, which are ordered.  These are sequences!  Skeptical?  Recall the definition of a sequence:
+> A sequence is a type of function in which the domain (not the range) is a set of consecutive integers.  ex: $\{1,2,3,4\}$
+
+_n-tuples_, because they are ordered, have consecutive integer indices, $1,2,3,...$ etc., which makes them a sequence.
+
+### Sum Rule
+Let $A_1, A_2,..., A_n$ be finite sets.  If they are pairwise disjoint (which means that all sets share no common elements), then
+
+$$
+\big| A_1 \cup A_2 \ldots \cup A_n \big| = \big|A_1 \big| + \big| A_2 \big| + \ldots \big| A_n \big|
+$$
+
+This is much more simple than the formal definition would lead you to believe.  Simply put, if all sets share no elements, then the cardinality of all of them individually is the same as the cardinality of all of them together.
+
+#### Using both the Sum and Product rules
+
+Consider building a laptop. How many configurations are possible in this scenario?
+
+- 3 screen sizes
+- 2 processor speeds
+- storage:
+  - 2 HDD sizes
+  - 3 SSD sizes
+
+### Bijection rule
+
+If there is a bijection between two sets, then those sets have the same cardinality.  
+This can be helpful when counting one set is hard, but counting its bijection is easy.  
+
+### The k-to-1 rule
+Let $X,Y$ be finite sets.  $f: X \to Y$ is a $k \text{-to-} 1$ correspondence if for every $y \in Y$, there are exactly $k$ different $x \in X$ such that $f(x) = y$
+
+This would make the function $f$ onto, but not one-to-one.  Not all functions that are onto have this property.
+
+Example: I could count the number of shoes in the room, or I could count the number of people in the room and multiply that by 2.
+
+### The Generalized Product Rule
+The generalized product rule says that if the number of choices at each step does not depend on previous choices made, then the number of items in the set is the product of the number of choices in each step.
+
+Example: creating a password
+
+Lets say I want to create a password that is 12 characters long.  I can pick whatever I want for the first character, and that does not affect what I pick for the second character, or the third, etc.
+
+Example: gold, silver, and bronze
+
+At each event in the olympics, there is a gold, a silver, and a bronze medal awarded.  After someone wind the gold medal, That person is not eligible to win the silver or the bronze.  That means there is one less person available to win the silver.  Even though the number of choices has been reduced by 1, it does not matter who won the gold; the number of available options for silver will always be reduced by 1.  The same is true for the bronze.  
+In this case, even though the number of choices is reduced by 1 at each step, it predictably reduces by 1 each step, regardless of who won in the previous step, so this is a valid application of the generalized product rule.  
+
+See Zybooks 9.3 for more examples
+
+### Counting Permutations
+
+An $r\text{-permutation}$ is a sequence of $r$ items with no repetitions (like in the olympics example above, which is a 3-permutation).  
+
+#### $P(n,r)$ : n permute r
+
+Let $r,n$ be positive integers with $r \leq n$.  the number of $r$-permutations from a set with $n$ elements is $P(n,r)$:
+
+$$
+\begin{aligned}
+P(n,r) &= \frac{n!}{(n-r)!} \\
+& = \frac{{\color{blue}{n(n-1)\cdots (n-r+1)}}\cancel{(n-r)}\cancel{(n-r-1)} \cdots \cancel{1}}{\cancel{(n-r)}\cancel{(n-r-1)}\cdots \cancel{1}} \\
+&= n(n-1)\cdots (n-r+1)
+\end{aligned}
+$$
+
+If no $r$ is provided, then assume $r = n$.  This would be called a permutation, and not an $r$-permutation.
 
 ## Lecture 25
 Sections 9.5 - 9.8
