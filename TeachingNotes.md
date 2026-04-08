@@ -1659,11 +1659,11 @@ Remember, the inductive hypothesis allows us to assume that it just works, and m
 ## Lecture 24
 Sections 9.1 - 9.4
 
-### Counting
+### Introduction to Counting
 
 Counting a large but finite set can be difficult.  Determining a sets cardinality often requires exploiting the mathematical structure of the set.
 
-### Product Rule
+#### Product Rule
 Let $A_1, A_2,..., A_n$ be finite sets. Then:
 
 $$
@@ -1680,7 +1680,7 @@ For example, the cartesian product results in a set of _n-tuples_, which are ord
 
 _n-tuples_, because they are ordered, have consecutive integer indices, $1,2,3,...$ etc., which makes them a sequence.
 
-### Sum Rule
+#### Sum Rule
 Let $A_1, A_2,..., A_n$ be finite sets.  If they are pairwise disjoint (which means that all sets share no common elements), then
 
 $$
@@ -1689,7 +1689,7 @@ $$
 
 This is much more simple than the formal definition would lead you to believe.  Simply put, if all sets share no elements, then the cardinality of all of them individually is the same as the cardinality of all of them together.
 
-#### Using both the Sum and Product rules
+#### Combining the Sum and Product rules
 
 Consider building a laptop. How many configurations are possible in this scenario?
 
@@ -1699,12 +1699,14 @@ Consider building a laptop. How many configurations are possible in this scenari
   - 2 HDD sizes
   - 3 SSD sizes
 
-### Bijection rule
+### Counting via Functions
+
+#### Bijection rule
 
 If there is a bijection between two sets, then those sets have the same cardinality.  
 This can be helpful when counting one set is hard, but counting its bijection is easy.  
 
-### The k-to-1 rule
+#### The k-to-1 rule
 Let $X,Y$ be finite sets.  $f: X \to Y$ is a $k \text{-to-} 1$ correspondence if for every $y \in Y$, there are exactly $k$ different $x \in X$ such that $f(x) = y$
 
 This would make the function $f$ onto, but not one-to-one.  Not all functions that are onto have this property.
@@ -1712,40 +1714,120 @@ This would make the function $f$ onto, but not one-to-one.  Not all functions th
 Example: I could count the number of shoes in the room, or I could count the number of people in the room and multiply that by 2.
 
 ### The Generalized Product Rule
-The generalized product rule says that if the number of choices at each step does not depend on previous choices made, then the number of items in the set is the product of the number of choices in each step.
+The generalized product rule says that if the number of choices at each step is fixed or predictable, then the number of items in the set is the product of the number of choices in each step.
 
 Example: creating a password
 
-Lets say I want to create a password that is 12 characters long.  I can pick whatever I want for the first character, and that does not affect what I pick for the second character, or the third, etc.
+Lets say I want to create a password that is 12 characters long.  I can pick whatever I want for the first character, and that does not affect what I pick for the second character, or the third, etc.  The number of choices at each step is fixed.
 
 Example: gold, silver, and bronze
 
-At each event in the olympics, there is a gold, a silver, and a bronze medal awarded.  After someone wind the gold medal, That person is not eligible to win the silver or the bronze.  That means there is one less person available to win the silver.  Even though the number of choices has been reduced by 1, it does not matter who won the gold; the number of available options for silver will always be reduced by 1.  The same is true for the bronze.  
-In this case, even though the number of choices is reduced by 1 at each step, it predictably reduces by 1 each step, regardless of who won in the previous step, so this is a valid application of the generalized product rule.  
+At each event in the olympics, there is a gold, a silver, and a bronze medal awarded.  After someone wins the gold medal, that person is not eligible to win the silver or the bronze. After the silver medal is awarded, there is again one less person eligible to win bronze.  
+In this case, the number of choices changes at each step, but it's predictable -- 1 fewer choice each time, regardless of who won in the previous step. Therefore, this is a valid application of the generalized product rule.  
 
 See Zybooks 9.3 for more examples
 
-### Counting Permutations
+### Permutations (counting sequences)
 
 An $r\text{-permutation}$ is a sequence of $r$ items with no repetitions (like in the olympics example above, which is a 3-permutation).  
 
-#### $P(n,r)$ : n permute r
+#### The Permutation Formula
+
+$P(n,r)$ : n permute r
 
 Let $r,n$ be positive integers with $r \leq n$.  the number of $r$-permutations from a set with $n$ elements is $P(n,r)$:
 
 $$
 \begin{aligned}
 P(n,r) &= \frac{n!}{(n-r)!} \\
-& = \frac{{\color{blue}{n(n-1)\cdots (n-r+1)}}\cancel{(n-r)}\cancel{(n-r-1)} \cdots \cancel{1}}{\cancel{(n-r)}\cancel{(n-r-1)}\cdots \cancel{1}} \\
+& = \frac{{n(n-1)\cdots (n-r+1)}\color{blue}{\cancel{(n-r)}\cancel{(n-r-1)} \cdots \cancel{1}}}{\color{blue}{\cancel{(n-r)}\cancel{(n-r-1)}\cdots \cancel{1}}} \\
 &= n(n-1)\cdots (n-r+1)
 \end{aligned}
 $$
 
-If no $r$ is provided, then assume $r = n$.  This would be called a permutation, and not an $r$-permutation.
+If no $r$ is provided, then assume $r = n$.  This would be called a permutation, not an $r$-permutation.
 
 ## Lecture 25
 Sections 9.5 - 9.8
 
+In the previous lecture we:
+1. Reviewed the product and sum rule.  
+2. Learned about permutations, or counting sequences, where order matters.  
+
+In this lecture, we will switch focus combinations, or counting subsets, where order does not matter.
+
+### Combinations (counting subsets)
+
+#### Using the $k\text{-to-1}$ rule to count subsets
+
+Assume we have a set with 5 elements in it: {1, 2, 3, 4, 5}.  
+How many subsets can we make that have exactly 3 elements in them?  In other words, if the order in which we chose the 3 elements does not matter, how many 3-item combinations are there?
+
+Well, if the order _did_ matter, we would use our equation for permutations from last lecture: $P(5,3) = \frac{5!}{(5-3)!} = \frac{5!}{2!} = 60$
+
+But, since order does not matter, {1,2,3} is the same as {3,2,1}, which is the same as {2,1,3}, and so on.  How many of these permutations exist with these three numbers? $\frac{3!}{(3-3)!} = 3! = 6$.  That means there are 3!, or 6,  3-permutations for every 3-combination.  In other words, $3!\text{-to-1}$
+
+So, to find the total number of 3-combinations that we can make from our 5 element set, we just need to adjust for these duplicate permutations by dividing by 3!:
+
+$$
+\frac{P(5,3)}{3!} = \frac{5!}{3!(5-3)!} = \frac{5!}{3!2!} = 10
+$$
+
+#### The Combination Formula
+$$
+\binom{n}{r} = \frac{n!}{r!(n-r)!}
+$$
+
+$\binom{n}{r}$, which is read "n chose r", can also be written $C(n,r)$
+
+#### The combination identity
+
+$$
+{n \choose n-r} = \frac{n!}{(n-r)!(n-(n-r))!} = \frac{n!}{(n-r)!r!} = {n \choose r}.
+$$
+
+#### example: walking through a city
+
+Assume the city is laid out in a grid.  How can you represent the number of ways you can walk from your location to a desired destination?  Assume the destination is 10 blocks to the east and 4 blocks to the north.
+
+### Combinations or Permutations?
+How do we know when to use permutations and when to use combinations?  The key is to recognize if order matters or not.  When order matters, we are dealing with permutations.  If order does not matter, we are dealing with combinations.
+
+Lets revisit the olympics example.  In this case we use permutations, because the order clearly matters; gold, silver, and bronze hold different values.  How could we convert this from a permutation to a combination?
+
+#### example: my pizza or our pizza?
+
+- Assume I'm ordering pizza, and I get to pick three different toppings (there are 15 options).  How many possible choices exist?
+  - How many outcomes exist if I can chose the same topping more than once?
+- Assume two friends and I are sharing a pizza, and we get to pick three different toppings (there are 15 options).  Each person picks one topping.  How many possible choices exist?
+  - How many outcomes exist if we can chose the same topping more than once?
+
+
+### Counting by compliment
+
+$|P| = |S| - |\overline{P}|$
+
+If you want to know how many elements have a specific property, you cold count them all.  Or, you could subtract the number of elements that _don't_ have that property from the total number of elements.
+
+### Permutations with Repetitions
+
+How many permutations exist of the word "Mississippi"?
+
+Because some of the letters are repeated, we have to combine all three main ideas from this lecture and last:  Permutations, combinations, and the product rule.
+
+- There are 11 total characters:
+  - 1 - M
+  - 4 - i
+  - 4 - s
+  - 2 - p
+
+$$
+\binom{11}{1} \times \binom{10}{4} \times \binom{6}{4} \times \binom{2}{2} = \\
+~\\
+\frac{11!}{1!~\cancel{10!}} \times \frac{\cancel{10!}}{4!~\cancel{6!}} \times \frac{\cancel{6!}}{4!~\cancel{2!}} \times \frac{\cancel{2!}}{2!~0!} = \\
+~\\
+\frac{11!}{1!~4!~4!~2!}
+$$
 
 ## Lecture 26
 Sections 9.9 - 9.12
