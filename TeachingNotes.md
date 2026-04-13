@@ -1832,6 +1832,25 @@ $$
 ## Lecture 26
 Sections 9.9 - 9.12
 
+### Multisets
+A Multiset is a set that allows for duplicate elements.  For example, $\{1,2,2,3\} \neq \{1,2,3\}$ 
+
+Lets say you're picking a dozen doghnuts, and there are 4 flavors to chose from: Glazed, Maple, Chocolate-chocolate, and Jelly-filled.  Of course, you can choose more than one of each flavor. The number of possible combinations is: $\binom{15}{3}$.  Where does that number come from?
+
+
+Lets create a binary string to represent the choices.  Assume my box of doghnuts includes 6 Glazed, 3 Maple, 2 Chocolate-chocolate, 1 Jelly filled.  The binary string used to represent this configuration would be: $G1M1C1J = 000000100010010$
+
+Notice that we have substrings consisting of all zeros, joined together with a 1 between them.  We have 12 zeros, plus 3 ones to divide the four different available flavors.  12 flavors + 3 spacers = 15, so we can represent all possible combinations with a string of length 15, which must include 3 ones.  so, $\binom{15}{3}$.
+
+The general form of the number of ways to construct a multiset is:
+
+$$
+\binom{n+m-1}{m-1}
+$$
+
+where $n$ is the number of elements in the set, and $m-1$ is the number of different types of elements available to chose from.
+
+
 
 ## Lecture 27
 Sections 9.13 - 9.15
