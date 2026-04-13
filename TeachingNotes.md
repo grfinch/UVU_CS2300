@@ -1840,7 +1840,7 @@ Lets say you're picking a dozen doghnuts, and there are 4 flavors to chose from:
 
 Lets create a binary string to represent the choices.  Assume my box of doghnuts includes 6 Glazed, 3 Maple, 2 Chocolate-chocolate, 1 Jelly filled.  The binary string used to represent this configuration would be: $G1M1C1J = 000000100010010$
 
-Notice that we have substrings consisting of all zeros, joined together with a 1 between them.  We have 12 zeros, plus 3 ones to divide the four different available flavors.  12 flavors + 3 spacers = 15, so we can represent all possible combinations with a string of length 15, which must include 3 ones.  so, $\binom{15}{3}$.
+Notice that we have substrings consisting of all zeros, joined together with a 1 between them.  We have 12 zeros, plus 3 ones to divide the four different available flavors.  12 flavors + 3 spacers = 15, so we can represent all possible combinations with a string of length 15, which must include 3 ones.  so, $\binom{15}{3}$.  Notice that we have to assign an "order" to the differenent varieties, but this order is arbitrary.
 
 The general form of the number of ways to construct a multiset is:
 
@@ -1850,6 +1850,46 @@ $$
 
 where $n$ is the number of elements in the set, and $m-1$ is the number of different types of elements available to chose from.
 
+#### more multiset examples:
+- What if you have to pick at least 1 of each flavor of doghnut?  
+  - What if you have to pick at least 2 of each flavor?
+- What if there are 13 doghnut flavors to chose from?
+- What if there are 10 students who attend class, and there are 6 tables they can sit at?
+- What if there are 6 sections of a class offered next semester, and there are 120 students who need to take that class?
+- Assume we have $n$ balls and $m$ bins:
+  - What if the balls are the same and:
+    - the bins are the same?
+    - there can only be 1 ball in each bin? $(m \geq n)$
+    - there must be the same number of balls in each bin? $(m | n)$
+  - What if the balls are all unique, and:
+    - the bins are the same?
+    - there can only be 1 ball in each bin? $(m \geq n)$
+    - there must be the same number of balls in each bin? $(m | n)$
+
+### The Inclusion-exclusion Principle
+
+When we union sets, we need to account for the fact that there might be duplicate elements in the two sets.  This is inclusion-exclusion principle.
+
+$$
+\begin{aligned}
+|A \cup B| &= |A|+|B|-|A \cap B| & \text{for two sets}\\
+|A \cup B \cup C | &= |A|+|B| + |C| - |A \cap B| - |B \cap C| - |A \cap C| + |A \cap B \cap C| & \text{for three sets}
+\end{aligned}
+$$
+
+The general form:
+$$
+\begin{align*}
+|A_1 \cup A_2 \cup \cdots \cup A_n|  &= \sum_{j=1}^n |A_j|\\
+&\\
+& - \sum_{1 \le j \lt k \le n} |A_j \cap A_k|\\
+&\\
+& + \sum_{1 \le j \lt k \lt  l \le n} |A_j \cap A_k \cap A_l|\\
+&\Large\qquad\vdots\phantom{\dfrac{0}{0}}\normalsize
+\\
+& + (-1)^{n+1} |A_1 \cap A_2 \cap \cdots \cap A_n|
+\end{align*}
+$$
 
 
 ## Lecture 27
