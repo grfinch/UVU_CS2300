@@ -1833,7 +1833,7 @@ $$
 Sections 9.9 - 9.12
 
 ### Multisets
-A Multiset is a set that allows for duplicate elements.  For example, $\{1,2,2,3\} \neq \{1,2,3\}$ 
+A Multiset is a set that allows for duplicate elements.  For example, $\{1,2,2,3\} \neq \{1,2,3\}$  
 
 Lets say you're picking a dozen doghnuts, and there are 4 flavors to chose from: Glazed, Maple, Chocolate-chocolate, and Jelly-filled.  Of course, you can choose more than one of each flavor. The number of possible combinations is: $\binom{15}{3}$.  Where does that number come from?
 
@@ -1850,10 +1850,11 @@ $$
 
 where $n$ is the number of elements in the set, and $m-1$ is the number of different types of elements available to chose from.
 
-#### more multiset examples:
+#### more multiset examples
+
 - What if you have to pick at least 1 of each flavor of doghnut?  
   - What if you have to pick at least 2 of each flavor?
-- What if there are 13 doghnut flavors to chose from?
+- What if there are 13 doughnut flavors to chose from?
 - What if there are 10 students who attend class, and there are 6 tables they can sit at?
 - What if there are 6 sections of a class offered next semester, and there are 120 students who need to take that class?
 - Assume we have $n$ balls and $m$ bins:
@@ -1891,10 +1892,53 @@ $$
 \end{align*}
 $$
 
-
 ## Lecture 27
 Sections 9.13 - 9.15
 
+### Generating Permutations and Combinations
+Sometime counting is not enough.  We might need to actually generate all possible permutations and combinations.
+
+#### Lexicographic order
+Think of words in the English dictionary.  This type of ordering compares elements in a tuple one by one until a difference is found, and that difference is used to determine the order of two tuples. Permutations of a set can always be ordered lexicographically, provided that the individual elements that make up the permutation can be ordered. If we generate permutations in lexicographic order, then we can be sure we generate all permutations without duplicating any of them.
+
+So, how do we actually generate the next permutation in lexicographic order?  The trick is to scan the elements from _right_ to _left_, until we observe on element that drops in value -- call that element $x$.  Then, swap $x$ with the element to the right which is both larger than $x$ and smaller than all other elements which appear to the right of the current position of $x$. Finally, reorder the elements which appear to the right of the original position of $x$
+
+ex:  Find the next permutation of $(5,2,4,3,1)$  
+
+$$
+(5,2,4,3,\textcolor{red}{1}) \\
+(5,2,4,\textcolor{red}{3},1) \\
+(5,2,\textcolor{red}{4},3,1) \\
+(5,\textcolor{green}{2},4,3,1) \\
+(5,\textcolor{yellow}{3},4,\textcolor{yellow}{2},1) \\
+(5,3,\textcolor{yellow}{1,2,4}) \\
+$$
+
+### Binomial coefficients and combinatorial identities
+We've already seen one identity:
+
+$$
+{n \choose r} = {n \choose n-r}.
+$$
+
+#### Binomial Theorem
+$(a+b)^3 = aaa+aab+aba+abb+baa+bab+bba+bbb = a^3+3a^2b + 3ab^2+b^3$
+
+Notice that in each term, the coefficients follow the pattern $\binom{3}{0}\binom{3}{1}\binom{3}{2}\binom{3}{3}$  
+The pattern can be written:
+
+$$
+(a+b)^n = \sum_{k=0}^n {n \choose k} a^{n-k}b^k  = \sum_{k=0}^n {n \choose k} a^{k}b^{n-k}
+$$
+
+#### Binomial Theorem Identity
+
+$$
+2^n = \sum_{k=0}^n {n \choose k}
+$$
+
+### The Pigeonhole Principle
+[watch this video](https://www.youtube.com/watch?v=tiPdN0wtN0M)
 
 ## Lecture 28
 Final Exam Review
