@@ -5,7 +5,7 @@ While these notes should render on GitHub.com, I use the built-in VS Code markdo
 ## Lecture 1
 
 Read the syllabus  
-Study LaTex
+Study LaTeX
 
 ## Lecture 2
 Sections 1.1 - 1.3
@@ -572,7 +572,7 @@ ex: $\neg \exists x P(x) \equiv \forall x \neg P(x)$
 1. Statements:
    - A statement cannot be both true and not true at the same time.  Therefore, if you can prove that the negation of the statement is true ($\neg P \equiv T$), then the original statement must be false ($P \equiv F$).
 2. Arguments (assume all premises are true):
-   - If assuming the _negation_ of the conclusion is true leads to a contradiction, then the argument must be valid.
+   - If assuming the _negation_ of the conclusion is true leads to a contradiction (ex. a variable being both tur and false at the same time), then the argument must be valid.
    - If assuming the _negation_ of the conclusion is true leads instead to a counterexample (that is, a situation where the premises are satisfied but the conclusion is false), then the argument is invalid.
 
 ## Lecture 8
