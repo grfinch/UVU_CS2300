@@ -598,7 +598,7 @@ x^2 + y^2 &\geq 2xy \\
 \end{aligned}
 $$
 
-NOTE: There are two more known facts that I could have added to the beginning of the proof (which together can be used to derive the first line of the proof), but did not on the assumption that they are obvious:
+NOTE: There are two more known facts that I could have added to the beginning of the proof (which together can be used to derive the first line of the proof), but I did not on the assumption that they are obvious:
 1. Adding or subtracting two real numbers results in a real number ($x-y$ is real)
 2. The square of any real number is $\geq 0$
 
@@ -614,7 +614,30 @@ Recall that a contrapositive is logically equivalent to the original conditional
 $p \to q \equiv \neg q \to \neg p$  
 Therefore, we assume the negation of the conclusion and derive the negation of the hypothesis.  
 
-TODO: put an example here
+Prove that if $n^2$ is even, then $n$ is even.
+
+- Hypothesis: $n^2$ is even  
+- Conclusion: $n$ is even
+
+State that you are using a proof by contrapositive, and then state the contrapositive
+
+**contrapositive**: if $n$ is not even, then $n^2$ is not even.  In other words, if $n$ is odd, then $n^2$ is odd.
+
+Proof by contrapositive:
+$$
+\begin{aligned}
+&\text{$n$ is odd}&\text{: Assume the negation of the conclusion}\\
+n &= 2k + 1 &\text{: definition of an odd number}\\
+n^2 &= (2k+1)^2\\
+n^2 &= 4k^2 + 4k + 1\\
+n^2 &= 2(2k^2 + 2k) + 1\\
+m &= 2k^2 + 2k&\text{: new variable}\\
+n^2 &= 2m + 1&\text{: substitute}\\
+n^2 &= \text{odd number} &\text{: definition of an odd number}\\
+\end{aligned}
+$$
+
+The contrapositive is true, therefore the original hypothesis
 
 Why use proof by contrapositive?
 - The negation of the conclusion might be simpler and easier to work with than the hypothesis.
@@ -626,7 +649,7 @@ Why use proof by contrapositive?
 
 $(H_1 \land H_2 \land ... \land H_n) \to C$
 
-Because our hypotheses are conjoined, we only need to show that one of the hypotheses is false in a proof by contrapositive.  
+Because our hypotheses are conjoined, we only need to show that one of the hypotheses is false in a proof by contrapositive.  Let me show you why that is:
 
 | statement | rule used |
 | --------- | --------- |
